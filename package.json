@@ -1,0 +1,54 @@
+{
+  "name": "ers-system",
+  "version": "1.0.0",
+  "description": "Employee Reimbursement System for Project 0 & Project 1 Through Revature Training.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec ts-node src/index.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "tslint src/**/*.ts",
+    "lint:fix": "tslint src/**/*.ts --fix"
+  },
+  "keywords": [
+    "employee",
+    "reimbursement",
+    "system",
+    "ers",
+    "revature"
+  ],
+  "author": "Michael R Roark",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "passport-jwt": "^4.0.0",
+    "tslint": "^5.12.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.12",
+    "@types/express": "^4.16.0",
+    "@types/express-session": "^1.15.11",
+    "nodemon": "^1.18.9",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.4",
+    "ts-jest": "^23.10.5",
+    "jest": "^23.6.0"
+  }
+}
