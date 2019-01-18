@@ -1,9 +1,9 @@
 import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
-import {authRouter} from './routers/auth/auth.router'
+import { authRouter } from './routers/auth/auth.router';
 
-let app = express()
+const app = express();
 
 const sess = {
   secret: 'This is a very important secret. Tell no one.',
@@ -14,14 +14,14 @@ const sess = {
 
 app.use(session(sess));
 app.use(bodyParser.json());
-app.use((req,res,next)=>{//Logger
+app.use((req, res, next) => {// Logger
   console.log(`${req.method} Request revieved from ${req.ips} for ${req.path}`);
   next();
-})
+});
 
 app.use('/auth', authRouter);
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
   res.send ('Working server.');
 });
 

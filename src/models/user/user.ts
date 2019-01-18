@@ -1,16 +1,18 @@
 import { UserRoles } from './user.roles';
 
 export class User {
-  role:string;
+  id: number;
+  role: string;
 
-  username:string;
-  password:string;
-  email:string;
+  username: string;
+  password: string;
+  email: string;
 
-  firstName:string;
-  lastName:string;
+  firstName: string;
+  lastName: string;
 
-  constructor(username:string, password:string, email:string, firstName:string = ' ', lastName:string = ' ', role:string = UserRoles.user) {
+  constructor(username: string, password: string, email: string, firstName: string = ' ', lastName: string = ' ', role: string = UserRoles.user) {
+    this.id = 0; // Need logic to generate unique key.
     this.username = username;
     this.password = password;
     this.email = email;
