@@ -1,7 +1,7 @@
 import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
-import {authRouter} from './routers/auth.router'
+import {authRouter} from './routers/auth/auth.router'
 
 let app = express()
 
