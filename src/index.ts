@@ -1,8 +1,8 @@
 import express from 'express';
-import session from 'express-session';
 import bodyParser from 'body-parser';
 import { authRouter } from './routers/auth/auth.router';
 import { adminRouter } from './routers/admin/admin.router';
+import { financeManagerRouter } from './routers/finanace-manager/finance.manager';
 
 const app = express();
 
@@ -21,10 +21,7 @@ app.use((req, res, next) => {// Logger
 });
 
 app.use('/auth', authRouter);
+app.use('/finance-manager', financeManagerRouter);
 app.use('/admin', adminRouter);
-
-app.get('/', (req, res) => {
-  res.send ('Working server.');
-});
 
 app.listen(8080, () => console.log('Server started on port 8080'));
