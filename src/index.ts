@@ -2,6 +2,7 @@ import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import { authRouter } from './routers/auth/auth.router';
+import { adminRouter } from './routers/admin/admin.router';
 
 const app = express();
 
@@ -15,11 +16,12 @@ const app = express();
 // app.use(session(sess));
 app.use(bodyParser.json());
 app.use((req, res, next) => {// Logger
-  console.log(`${req.method} Request revieved from ${req.ips} for ${req.path}`);
+  console.log(`${req.method} Request recieved from ${req.ips} for ${req.path}`);
   next();
 });
 
 app.use('/auth', authRouter);
+app.use('/admin', adminRouter);
 
 app.get('/', (req, res) => {
   res.send ('Working server.');
