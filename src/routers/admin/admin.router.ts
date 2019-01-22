@@ -20,6 +20,7 @@ adminRouter.use((req, res, next) => {
             res.status(401).send({auth: false, message: 'User does not have administrative privleges!'});
         }
         else {
+            res.locals.user = decoded;
             next();
         }
     }); // end of verify
