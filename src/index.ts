@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import { authRouter } from './routers/auth/auth.router';
 import { adminRouter } from './routers/admin/admin.router';
 import { financeManagerRouter } from './routers/finanace-manager/finance.manager';
-import { userRouter } from './routers/user/user.router';
+import { usersRouter } from './routers/users/users.router';
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use((req, res, next) => {// Logger
 });
 
 app.use('/auth', authRouter);
-app.use('/user', userRouter);
+app.use('/users', usersRouter);
 app.use('/finance-manager', financeManagerRouter);
 app.use('/admin', adminRouter);
 

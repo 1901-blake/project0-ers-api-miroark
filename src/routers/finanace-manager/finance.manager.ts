@@ -17,7 +17,7 @@ financeManagerRouter.use((req, res, next) => {
             res.status(500).send({auth: false, message: 'Failed to authenticate token!'});
         }
         else if (decoded.role.id !== manager.id) {
-            res.status(401).send({auth: false, message: 'User does not have financial manager privleges!'});
+            res.status(401).send({auth: false, message: 'The incoming token has expired'});
         }
         else {
             res.locals.user = decoded;
@@ -25,7 +25,3 @@ financeManagerRouter.use((req, res, next) => {
         }
     }); // end of verify
 }); // end of authenticator
-
-financeManagerRouter.get('/tickets', (req, res) => {
-    res.status(200).send(tickets);
-});

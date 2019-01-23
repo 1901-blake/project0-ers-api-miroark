@@ -26,26 +26,13 @@ authRouter.post('/login', (req, res) => {
 
   const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
   if (!passwordIsValid) {
-    res.status(401).send({auth: false, token: undefined});
+    res.status(401).send({auth: false, token: undefined, message: 'Invalid Credentials'});
+  }else {
+
+    const token = jwt.sign({...user}, config.secret, {
+      expiresIn: 86400
+    });
+
+    res.status(200).send({auth: true, token: token});
   }
-
-  const token = jwt.sign({...user}, config.secret, {
-    expiresIn: 86400
-  });
-
-  res.status(200).send({auth: true, token: token});
-});
-
-authRouter.get('/me', (req, res, next) => {
-  const token: any = req.headers['x-access-token'];
-  if (!token) {
-      res.status(400).send({auth: false, message: 'No token found!'});
-  }
-
-  jwt.verify(token, config.secret, (err: any, decoded: any) => {
-      if (err) {
-          res.status(500).send({auth: false, message: 'Failed to authenticate token!'});
-      }
-      res.status(200).send(decoded);
-  }); // end of verify
 });

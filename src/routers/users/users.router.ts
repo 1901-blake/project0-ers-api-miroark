@@ -1,9 +1,10 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import { config, tickets } from '../../config';
-export const userRouter = express.Router();
+import { admin, manager } from '../../models/user/user.roles';
+export const usersRouter = express.Router();
 
-userRouter.use((req, res, next) => {
+usersRouter.use((req, res, next) => {
     const token: any = req.headers['x-access-token'];
     if (!token) {
         res.status(400).send({auth: false, message: 'No token found!'});
@@ -20,8 +21,13 @@ userRouter.use((req, res, next) => {
     }); // end of verify
 }); // end of authenticator
 
-userRouter.get('/my-tickets', (req, res) => {
-    res.status(200).send(tickets.filter((element) => {
-        return element.author === res.locals.user.id;
-    }));
+usersRouter.get('/:id', (req, res) => {
+    if (res.locals.user.id === req.params.id || // if they're the user
+        res.locals.user.role.id === admin.id || // if they're an adim
+        res.locals.user.role.id === manager.id) {   // if they're a manager
+
+        res.status(200).send(res.locals.user);
+    } else {
+        res.status(401).send({message: 'The incoming token has expired.'});
+    }
 });

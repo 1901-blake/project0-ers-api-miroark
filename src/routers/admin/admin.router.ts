@@ -17,7 +17,7 @@ adminRouter.use((req, res, next) => {
             res.status(500).send({auth: false, message: 'Failed to authenticate token!'});
         }
         else if (decoded.role.id !== admin.id) {
-            res.status(401).send({auth: false, message: 'User does not have administrative privleges!'});
+            res.status(401).send({auth: false, message: 'The incoming token has expired'});
         }
         else {
             res.locals.user = decoded;
@@ -26,6 +26,3 @@ adminRouter.use((req, res, next) => {
     }); // end of verify
 }); // end of authenticator.
 
-adminRouter.get('/users', (req, res) => {
-    res.status(200).send(users);
-});
