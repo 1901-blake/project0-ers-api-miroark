@@ -9,8 +9,8 @@ export const config = {
 };
 
 export const credentials = {
-  username: 'db_master_username',
-  password: 'db_master_password'
+  username: 'mike',
+  password: 'password'
 }
 
 // temporary array for holding Users as they register while developing.
