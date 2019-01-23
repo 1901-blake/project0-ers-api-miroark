@@ -1,6 +1,6 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import { config, tickets } from '../../config';
+import { config, tickets, users } from '../../config';
 import { admin, manager } from '../../models/user/user.roles';
 export const usersRouter = express.Router();
 
@@ -20,6 +20,23 @@ usersRouter.use((req, res, next) => {
         }
     }); // end of verify
 }); // end of authenticator
+
+usersRouter.get('/', (req, res) => {
+    if (res.locals.user.role.id === manager.id){
+        //Get all users, then send all users.
+        res.status(200).send(users);
+    } else {
+        res.status(401).send({auth: false, message: 'Invalid Credentials'});
+    }
+});
+
+usersRouter.patch('/', (req, res) => {
+    if(res.locals.user.role.id === admin.id){
+        //Get user by id provided. Then update, and reinsert to database.
+    } else {
+        res.locals(401).send({auth: false, message: 'Invalid Credentials'});
+    }
+});
 
 usersRouter.get('/:id', (req, res) => {
     if (res.locals.user.id === req.params.id || // if they're the user

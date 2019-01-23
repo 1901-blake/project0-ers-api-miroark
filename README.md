@@ -140,7 +140,7 @@ The ReimbursementType model is used to track what kind of reimbursement is being
 ### **Update User**  
 * **URL**
   `/users`
-
+  
 * **Method:**
   `PATCH`
 

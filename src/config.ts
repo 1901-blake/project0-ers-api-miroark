@@ -8,6 +8,11 @@ export const config = {
     'secret' : 'PassToken'
 };
 
+export const credentials = {
+  username: 'db_master_username',
+  password: 'db_master_password'
+}
+
 // temporary array for holding Users as they register while developing.
 // currently, every users id is equal to their position in the queue.
 // instantiate an admin.
