@@ -81,6 +81,7 @@
 							<h3>Object literals</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-object-literal tsd-parent-kind-external-module"><a href="_config_.html#config" class="tsd-kind-icon">config</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-external-module"><a href="_config_.html#credentials" class="tsd-kind-icon">credentials</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,7 +95,7 @@
 					<div class="tsd-signature tsd-kind-icon">tickets<span class="tsd-signature-symbol">:</span> <a href="../classes/_models_reimbursement_reimbursement_.reimbursement.html" class="tsd-signature-type">Reimbursement</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[new Reimbursement(0, 0, 5, new Date().getTime(), new Date().getTime() + 1000, &#x27;I was hungry&#x27;, 0, 0, 0),new Reimbursement(1, 0, 5, new Date().getTime(), new Date().getTime() + 1000, &#x27;I was hungry&#x27;, 0, 0, 0),new Reimbursement(2, 0, 5, new Date().getTime(), new Date().getTime() + 1000, &#x27;I was hungry&#x27;, 0, 0, 0)]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/e6b93c5/src/config.ts#L16">config.ts:16</a></li>
+							<li>Defined in config.ts:21</li>
 						</ul>
 					</aside>
 				</section>
@@ -104,7 +105,7 @@
 					<div class="tsd-signature tsd-kind-icon">users<span class="tsd-signature-symbol">:</span> <a href="../classes/_models_user_user_.user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[new User(0, &#x27;admin&#x27;, bcrypt.hashSync(&#x27;pass&#x27;, 8), &#x27;admin@here.com&#x27;, &#x27;admin&#x27;, &#x27;admin&#x27;, admin)]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/e6b93c5/src/config.ts#L14">config.ts:14</a></li>
+							<li>Defined in config.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -117,7 +118,7 @@
 					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/e6b93c5/src/config.ts#L7">config.ts:7</a></li>
+							<li>Defined in config.ts:7</li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -126,7 +127,37 @@
 						<div class="tsd-signature tsd-kind-icon">secret<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;PassToken&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/e6b93c5/src/config.ts#L8">config.ts:8</a></li>
+								<li>Defined in config.ts:8</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-external-module">
+					<a name="credentials" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> credentials</h3>
+					<div class="tsd-signature tsd-kind-icon">credentials<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in config.ts:11</li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="credentials.password" class="tsd-anchor"></a>
+						<h3>password</h3>
+						<div class="tsd-signature tsd-kind-icon">password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;password&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in config.ts:13</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="credentials.username" class="tsd-anchor"></a>
+						<h3>username</h3>
+						<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;mike&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in config.ts:12</li>
 							</ul>
 						</aside>
 					</section>
@@ -146,13 +177,7 @@
 						<a href="_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_models_reimbursement_reimburment_status_spec_.html">"models/reimbursement/reimburment.status.spec"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
 						<a href="_models_reimbursement_reimbursement_.html">"models/reimbursement/reimbursement"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_models_reimbursement_reimbursement_spec_.html">"models/reimbursement/reimbursement.spec"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_models_reimbursement_reimbursement_status_.html">"models/reimbursement/reimbursement.status"</a>
@@ -161,31 +186,13 @@
 						<a href="_models_reimbursement_reimbursement_type_.html">"models/reimbursement/reimbursement.type"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_models_reimbursement_reimbursment_type_spec_.html">"models/reimbursement/reimbursment.type.spec"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
 						<a href="_models_user_user_.html">"models/user/user"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_models_user_user_roles_.html">"models/user/user.roles"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_models_user_user_roles_spec_.html">"models/user/user.roles.spec"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_models_user_user_spec_.html">"models/user/user.spec"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_routers_admin_admin_router_.html">"routers/admin/admin.router"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_routers_auth_auth_router_.html">"routers/auth/auth.router"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_routers_finanace_manager_finance_manager_.html">"routers/finanace-<wbr>manager/finance.manager"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_routers_user_user_router_.html">"routers/user/user.router"</a>
+						<a href="_routers_users_users_router_.html">"routers/users/users.router"</a>
 					</li>
 				</ul>
 			</nav>
@@ -199,6 +206,9 @@
 					</li>
 					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module">
 						<a href="_config_.html#config" class="tsd-kind-icon">config</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module">
+						<a href="_config_.html#credentials" class="tsd-kind-icon">credentials</a>
 					</li>
 				</ul>
 			</nav>
