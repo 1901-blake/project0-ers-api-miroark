@@ -22,8 +22,8 @@ usersRouter.use((req, res, next) => {
 }); // end of authenticator
 
 usersRouter.get('/', (req, res) => {
-    if (res.locals.user.role.id === manager.id){
-        //Get all users, then send all users.
+    if (res.locals.user.role.id === manager.id) {
+        // Get all users, then send all users.
         res.status(200).send(users);
     } else {
         res.status(401).send({auth: false, message: 'Invalid Credentials'});
@@ -31,8 +31,8 @@ usersRouter.get('/', (req, res) => {
 });
 
 usersRouter.patch('/', (req, res) => {
-    if(res.locals.user.role.id === admin.id){
-        //Get user by id provided. Then update, and reinsert to database.
+    if (res.locals.user.role.id === admin.id) {
+        // Get user by id provided. Then update, and reinsert to database.
     } else {
         res.locals(401).send({auth: false, message: 'Invalid Credentials'});
     }
