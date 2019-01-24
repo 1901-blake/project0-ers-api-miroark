@@ -1,6 +1,6 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import { config, tickets, users } from '../../config';
+import { tickets, users } from '../../config';
 import { admin, manager } from '../../models/user/user.roles';
 export const usersRouter = express.Router();
 
@@ -10,8 +10,10 @@ usersRouter.use((req, res, next) => {
         res.status(400).send({auth: false, message: 'No token found!'});
     }
 
-    jwt.verify(token, config.secret, (err: any, decoded: any) => {
+    const secret: any = process.env.ERS_SECRET;
+    jwt.verify(token, secret, (err: any, decoded: any) => {
         if (err) {
+            console.log(err);
             res.status(500).send({auth: false, message: 'Failed to authenticate token!'});
         }
         else {
@@ -22,7 +24,9 @@ usersRouter.use((req, res, next) => {
 }); // end of authenticator
 
 usersRouter.get('/', (req, res) => {
-    if (res.locals.user.role.id === manager.id) {
+    console.log(`${res.locals.user.username} requested all users.`);
+    if (res.locals.user.role.id === manager.id ||
+        res.locals.user.role.id === admin.id) {
         // Get all users, then send all users.
         res.status(200).send(users);
     } else {
@@ -39,11 +43,12 @@ usersRouter.patch('/', (req, res) => {
 });
 
 usersRouter.get('/:id', (req, res) => {
-    if (res.locals.user.id === req.params.id || // if they're the user
+    console.log(`${res.locals.user.username} requested info for user_id ${req.params.id}`);
+    if (res.locals.user.id == req.params.id || // if they're the user. For some reason I need type coersion here.
         res.locals.user.role.id === admin.id || // if they're an adim
         res.locals.user.role.id === manager.id) {   // if they're a manager
 
-        res.status(200).send(res.locals.user);
+        res.status(200).send(users[req.params.id]);
     } else {
         res.status(401).send({message: 'The incoming token has expired.'});
     }

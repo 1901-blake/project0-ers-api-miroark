@@ -164,7 +164,7 @@ Reimbursements should be ordered by date
   For a challenge you could do this instead:  
   `/reimbursements/status/:statudId/date-submitted?start=:startDate&end=:endDate`
 
-* **Method:**
+  * **Method:**
   `GET`
 
 * **Allowed Roles** `finance-manager`

@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { User } from './models/user/user';
-import { users, config } from './config';
+import { users } from './config';
 import { usersRouter } from './routers/users/users.router';
 
 const app = express();
@@ -27,10 +27,11 @@ app.post('/register', (req, res) => {// Currently only makes admins.
   const newUser = new User(1, req.body.username, hashedPass, req.body.email,
     req.body.firstName, req.body.lastName);
 
-    // insert into the 'Database';
-    users.push(newUser);
+  // insert into the 'Database';
+   users.push(newUser);
 
-  const token = jwt.sign({...newUser}, config.secret, {
+  const secret: any = process.env.ERS_SECRET;
+  const token = jwt.sign({...newUser}, secret, {
     expiresIn: 86400
   });
 
@@ -45,7 +46,8 @@ app.post('/login', (req, res) => {
     res.status(401).send({auth: false, token: undefined, message: 'Invalid Credentials'});
   } else {
 
-    const token = jwt.sign({...user}, config.secret, {
+    const secret: any = process.env.ERS_SECRET;
+    const token = jwt.sign({...user}, secret, {
       expiresIn: 86400
     });
 
