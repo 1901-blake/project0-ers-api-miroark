@@ -2,7 +2,9 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import { tickets, users } from '../../config';
 import { admin, manager } from '../../models/user/user.roles';
-export const usersRouter = express.Router();
+
+const usersRouter = express.Router();
+export default usersRouter;
 
 usersRouter.use((req, res, next) => {
     const token: any = req.headers['x-access-token'];

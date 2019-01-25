@@ -1,4 +1,5 @@
 import { UserRole, user, manager, admin } from './user.roles';
+import jwt from 'jsonwebtoken';
 
 export class User {
   id: number;
@@ -19,5 +20,14 @@ export class User {
     this.firstName = firstName;
     this.lastName = lastName;
     this.role = role;
+  }
+
+  generateJwt () {
+    const secret: any = process.env.ERS_SECRET;
+    const token = jwt.sign({...this}, secret, {
+      expiresIn: 86400
+    });
+
+    return token;
   }
 }
