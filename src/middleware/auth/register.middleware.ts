@@ -1,17 +1,23 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
-import { User } from '../../models/user/user';
-import { users } from '../../config';
+import UserDao from '../../daos/user.dao';
+import jwt from 'jsonwebtoken';
 
-export default function registerAuth (req: express.Request, res: express.Response) {// Currently only makes admins.
+export default function registerAuth (req: express.Request, res: express.Response) {
   const hashedPass = bcrypt.hashSync(req.body.password, 8);
-  const newUser = new User(1, req.body.username, hashedPass, req.body.email,
-    req.body.firstName, req.body.lastName);
+  const dao = new UserDao();
 
-  // insert into the 'Database';
-   users.push(newUser);
+  dao.insertNewUser(req.body.username, hashedPass, req.body.email,
+    req.body.firstName, req.body.lastName)
+    .catch ((err) => {
+      throw err;
+    }).then(returnedIndex => {
+      dao.getUserbyId(returnedIndex).then( newUser => {
+        const secret: any = process.env.JWTSecret;
+        const token = jwt.sign({newUser}, secret, {expiresIn: 86400});
 
-  const token = newUser.generateJwt();
-
-  res.status(200).send({auth: true, token: token, user: newUser});
+        res.status(200).send({auth: true, token: token, user: newUser});
+        }
+      ).catch( err => {throw err; });
+    });
 }

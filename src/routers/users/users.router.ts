@@ -1,7 +1,7 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import { tickets, users } from '../../config';
 import { admin, manager } from '../../models/user/user.roles';
+import UserDao from '../../daos/user.dao';
 
 const usersRouter = express.Router();
 export default usersRouter;
@@ -12,14 +12,14 @@ usersRouter.use((req, res, next) => {
         res.status(400).send({auth: false, message: 'No token found!'});
     }
 
-    const secret: any = process.env.ERS_SECRET;
+    const secret: any = process.env.JWTSecret;
     jwt.verify(token, secret, (err: any, decoded: any) => {
         if (err) {
             console.log(err);
             res.status(500).send({auth: false, message: 'Failed to authenticate token!'});
         }
         else {
-            res.locals.user = decoded;
+            res.locals.user = decoded.user;
             next();
         }
     }); // end of verify
@@ -27,10 +27,14 @@ usersRouter.use((req, res, next) => {
 
 usersRouter.get('/', (req, res) => {
     console.log(`${res.locals.user.username} requested all users.`);
-    if (res.locals.user.role.id === manager.id ||
-        res.locals.user.role.id === admin.id) {
+    if (res.locals.user.userrole === manager.id ||
+        res.locals.user.userrole === admin.id) {
         // Get all users, then send all users.
-        res.status(200).send(users);
+
+        const dao = new UserDao();
+        dao.getAllUsers().then(users => {
+            res.status(200).send(users);
+        });
     } else {
         res.status(401).send({auth: false, message: 'Invalid Credentials'});
     }
@@ -38,7 +42,7 @@ usersRouter.get('/', (req, res) => {
 
 usersRouter.patch('/', (req, res) => {
     if (res.locals.user.role.id === admin.id) {
-        // Get user by id provided. Then update, and reinsert to database.
+        // Update user by id with given information.
     } else {
         res.locals(401).send({auth: false, message: 'Invalid Credentials'});
     }
@@ -50,7 +54,8 @@ usersRouter.get('/:id', (req, res) => {
         res.locals.user.role.id === admin.id || // if they're an adim
         res.locals.user.role.id === manager.id) {   // if they're a manager
 
-        res.status(200).send(users[req.params.id]);
+        const dao = new UserDao();
+        res.status(200).send(dao.getUserbyId(req.params.id));
     } else {
         res.status(401).send({message: 'The incoming token has expired.'});
     }

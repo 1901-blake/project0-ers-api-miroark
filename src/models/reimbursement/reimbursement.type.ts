@@ -8,7 +8,7 @@ export class ReimbursementType {
     }
 }
 
-export const lodging = new ReimbursementType(0, 'Lodging');
-export const travel = new ReimbursementType(1, 'travel');
-export const food = new ReimbursementType(2, 'Food');
-export const other = new ReimbursementType(3, 'Other');
+export const lodging = new ReimbursementType(1, 'Lodging');
+export const travel = new ReimbursementType(2, 'Travel');
+export const food = new ReimbursementType(3, 'Food');
+export const other = new ReimbursementType(4, 'Other');

@@ -8,6 +8,6 @@ export class ReimbursementStatus {
     }
 }
 
-export const pending = new ReimbursementStatus(0, 'Pending');
-export const approved = new ReimbursementStatus(1, 'Approved');
-export const denied = new ReimbursementStatus(2, 'Denied');
+export const pending = new ReimbursementStatus(1, 'Pending');
+export const approved = new ReimbursementStatus(2, 'Approved');
+export const denied = new ReimbursementStatus(3, 'Denied');

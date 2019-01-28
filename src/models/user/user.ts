@@ -1,33 +1,24 @@
 import { UserRole, user, manager, admin } from './user.roles';
 import jwt from 'jsonwebtoken';
 
-export class User {
+export default class User {
   id: number;
-  role: UserRole;
+  userrole: number;
 
   username: string;
-  password: string;
+  userpassword: string;
   email: string;
 
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
 
-  constructor(id: number, username: string, password: string, email: string, firstName: string = ' ', lastName: string = ' ', role: UserRole = user) {
+  constructor(id: number = 0, username: string = '', password: string = '', email: string = '', firstName: string = '', lastName: string = '', role: number = user.id) {
     this.id = id; // Need logic to generate unique key.
     this.username = username;
-    this.password = password;
+    this.userpassword = password;
     this.email = email;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.role = role;
-  }
-
-  generateJwt () {
-    const secret: any = process.env.ERS_SECRET;
-    const token = jwt.sign({...this}, secret, {
-      expiresIn: 86400
-    });
-
-    return token;
+    this.firstname = firstName;
+    this.lastname = lastName;
+    this.userrole = role;
   }
 }
