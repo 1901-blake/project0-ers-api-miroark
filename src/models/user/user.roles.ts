@@ -8,6 +8,6 @@ export class UserRole {
   }
 }
 
-export const user = new UserRole(0, 'user');
-export const manager = new UserRole(1, 'Financial Manager');
-export const admin = new UserRole(2, 'Administrator');
+export const user = new UserRole(1, 'user');
+export const manager = new UserRole(2, 'Financial Manager');
+export const admin = new UserRole(3, 'Administrator');

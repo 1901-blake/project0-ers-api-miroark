@@ -31,5 +31,4 @@ export default function registerAuth (req: express.Request, res: express.Respons
         }
       ).catch( err => {throw err; });
     }).catch ((err) => {throw err; });
-    res.status(500).send({auth: false, message: 'Unknown Error Occured.'});
 }
