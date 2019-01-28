@@ -91,18 +91,12 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_user_user_.user.html#email" class="tsd-kind-icon">email</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_user_user_.user.html#firstname" class="tsd-kind-icon">first<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_user_user_.user.html#firstname" class="tsd-kind-icon">firstname</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_user_user_.user.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_user_user_.user.html#lastname" class="tsd-kind-icon">last<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_user_user_.user.html#password" class="tsd-kind-icon">password</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_user_user_.user.html#role" class="tsd-kind-icon">role</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_user_user_.user.html#lastname" class="tsd-kind-icon">lastname</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_user_user_.user.html#username" class="tsd-kind-icon">username</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Methods</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_models_user_user_.user.html#generatejwt" class="tsd-kind-icon">generate<wbr>Jwt</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_user_user_.user.html#userpassword" class="tsd-kind-icon">userpassword</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_user_user_.user.html#userrole" class="tsd-kind-icon">userrole</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,37 +108,37 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>User<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, username<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, email<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, firstName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, lastName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, role<span class="tsd-signature-symbol">?: </span><a href="_models_user_user_roles_.userrole.html" class="tsd-signature-type">UserRole</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_models_user_user_.user.html" class="tsd-signature-type">User</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>User<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, username<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, email<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, firstName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, lastName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, role<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_models_user_user_.user.html" class="tsd-signature-type">User</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/b9d3328/src/models/user/user.ts#L13">models/user/user.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/a1ef43e/src/models/user/user.ts#L13">models/user/user.ts:13</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>id: <span class="tsd-signature-type">number</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> id: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
 								</li>
 								<li>
-									<h5>username: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> username: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
 								</li>
 								<li>
-									<h5>password: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> password: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
 								</li>
 								<li>
-									<h5>email: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> email: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> firstName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot; &quot;</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> firstName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> lastName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot; &quot;</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> lastName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> role: <a href="_models_user_user_roles_.userrole.html" class="tsd-signature-type">UserRole</a><span class="tsd-signature-symbol"> =&nbsp;user</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> role: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;user.id</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_models_user_user_.user.html" class="tsd-signature-type">User</a></h4>
@@ -160,17 +154,17 @@
 					<div class="tsd-signature tsd-kind-icon">email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/b9d3328/src/models/user/user.ts#L10">models/user/user.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/a1ef43e/src/models/user/user.ts#L10">models/user/user.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="firstname" class="tsd-anchor"></a>
-					<h3>first<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">first<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<h3>firstname</h3>
+					<div class="tsd-signature tsd-kind-icon">firstname<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/b9d3328/src/models/user/user.ts#L12">models/user/user.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/a1ef43e/src/models/user/user.ts#L12">models/user/user.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,37 +174,17 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/b9d3328/src/models/user/user.ts#L5">models/user/user.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/a1ef43e/src/models/user/user.ts#L5">models/user/user.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="lastname" class="tsd-anchor"></a>
-					<h3>last<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">last<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<h3>lastname</h3>
+					<div class="tsd-signature tsd-kind-icon">lastname<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/b9d3328/src/models/user/user.ts#L13">models/user/user.ts:13</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="password" class="tsd-anchor"></a>
-					<h3>password</h3>
-					<div class="tsd-signature tsd-kind-icon">password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/b9d3328/src/models/user/user.ts#L9">models/user/user.ts:9</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="role" class="tsd-anchor"></a>
-					<h3>role</h3>
-					<div class="tsd-signature tsd-kind-icon">role<span class="tsd-signature-symbol">:</span> <a href="_models_user_user_roles_.userrole.html" class="tsd-signature-type">UserRole</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/b9d3328/src/models/user/user.ts#L6">models/user/user.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/a1ef43e/src/models/user/user.ts#L13">models/user/user.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,29 +194,29 @@
 					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/b9d3328/src/models/user/user.ts#L8">models/user/user.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/a1ef43e/src/models/user/user.ts#L8">models/user/user.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="generatejwt" class="tsd-anchor"></a>
-					<h3>generate<wbr>Jwt</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">generate<wbr>Jwt<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/b9d3328/src/models/user/user.ts#L25">models/user/user.ts:25</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="userpassword" class="tsd-anchor"></a>
+					<h3>userpassword</h3>
+					<div class="tsd-signature tsd-kind-icon">userpassword<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/a1ef43e/src/models/user/user.ts#L9">models/user/user.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="userrole" class="tsd-anchor"></a>
+					<h3>userrole</h3>
+					<div class="tsd-signature tsd-kind-icon">userrole<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/a1ef43e/src/models/user/user.ts#L6">models/user/user.ts:6</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -253,7 +227,10 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_config_.html">"config"</a>
+						<a href="../modules/_daos_reimbirsement_dao_.html">"daos/reimbirsement.dao"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_daos_user_dao_.html">"daos/user.dao"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_index_.html">"index"</a>
@@ -285,6 +262,9 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_routers_users_users_router_.html">"routers/users/users.router"</a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_util_session_factory_.html">"util/session.factory"</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
@@ -301,25 +281,22 @@
 								<a href="_models_user_user_.user.html#email" class="tsd-kind-icon">email</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_models_user_user_.user.html#firstname" class="tsd-kind-icon">first<wbr>Name</a>
+								<a href="_models_user_user_.user.html#firstname" class="tsd-kind-icon">firstname</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_models_user_user_.user.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_models_user_user_.user.html#lastname" class="tsd-kind-icon">last<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_models_user_user_.user.html#password" class="tsd-kind-icon">password</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_models_user_user_.user.html#role" class="tsd-kind-icon">role</a>
+								<a href="_models_user_user_.user.html#lastname" class="tsd-kind-icon">lastname</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_models_user_user_.user.html#username" class="tsd-kind-icon">username</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_models_user_user_.user.html#generatejwt" class="tsd-kind-icon">generate<wbr>Jwt</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_models_user_user_.user.html#userpassword" class="tsd-kind-icon">userpassword</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_models_user_user_.user.html#userrole" class="tsd-kind-icon">userrole</a>
 							</li>
 						</ul>
 					</li>
