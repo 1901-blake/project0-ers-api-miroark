@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import { admin, manager } from '../../models/user/user.roles';
 import UserDao from '../../daos/user.dao';
 import bcrypt from 'bcryptjs';
+import User from '../../models/user/user';
 
 const usersRouter = express.Router();
 export default usersRouter;
@@ -26,35 +27,41 @@ usersRouter.use((req, res, next) => {
     }); // end of verify
 }); // end of authenticator
 
-usersRouter.get('/', (req, res) => {
+usersRouter.get('/', async (req, res) => {
     console.log(`${res.locals.user.username} requested all users.`);
     if (res.locals.user.userrole === manager.id ||
         res.locals.user.userrole === admin.id) {
         // Get all users, then send all users.
 
         const dao = new UserDao();
-        dao.getAllUsers().then(users => {
+        try {
+            const users = await dao.getAllUsers();
             res.status(200).send(users);
-        });
+        }
+        catch (err) {
+            res.status(500).send({auth: false, message: 'Unknown error has occured'});
+            throw err;
+        }
     } else {
         res.status(401).send({auth: false, message: 'Invalid Credentials'});
     }
 });
 
-usersRouter.get('/:id', (req, res) => {
+usersRouter.get('/:id', async (req, res) => {
     console.log(`${res.locals.user.username} requested info for user_id ${req.params.id}`);
-    console.log(res.locals.user.id);
-    console.log(res.locals.user.userrole);
-    console.log(admin.id);
     if (res.locals.user.id == req.params.id || // if they're the user. For some reason I need type coersion here.
         res.locals.user.userrole === admin.id || // if they're an adim
         res.locals.user.userroled === manager.id) {   // if they're a manager
 
         const dao = new UserDao();
-        dao.getUserbyId(req.params.id).then(user => {
+        try {
+            const user = await dao.getUserbyId(req.params.id);
             res.status(200).send(user);
-        })
-        .catch(err => { throw err; });
+        }
+        catch (err) {
+            res.status(500).send({auth: false, message: 'Unknown error has occurred'});
+        }
+
     } else {
         res.status(401).send({message: 'The incoming token has expired.'});
     }
