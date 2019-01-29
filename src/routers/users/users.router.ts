@@ -20,6 +20,7 @@ usersRouter.use((req, res, next) => {
             console.log(err);
             res.status(500).send({auth: false, message: 'Failed to authenticate token!'});
         } else {
+            console.log(decoded);
             res.locals.user = decoded.user;
             next();
         }
@@ -28,8 +29,8 @@ usersRouter.use((req, res, next) => {
 
 usersRouter.get('/', async (req, res) => {
     console.log(`${res.locals.user.username} requested all users.`);
-    if (res.locals.user.userrole === manager.id ||
-        res.locals.user.userrole === admin.id) {
+    if (res.locals.user.role === manager.id ||
+        res.locals.user.role === admin.id) {
         // Get all users, then send all users.
 
         const dao = new UserDao();
@@ -47,10 +48,11 @@ usersRouter.get('/', async (req, res) => {
 });
 
 usersRouter.get('/:id', async (req, res) => {
+    console.log(res.locals);
     console.log(`${res.locals.user.username} requested info for user_id ${req.params.id}`);
     if (res.locals.user.id == req.params.id || // if they're the user. For some reason I need type coersion here.
-        res.locals.user.userrole === admin.id || // if they're an adim
-        res.locals.user.userroled === manager.id) {   // if they're a manager
+        res.locals.user.role === admin.id || // if they're an adim
+        res.locals.user.roled === manager.id) {   // if they're a manager
 
         const dao = new UserDao();
         try {
@@ -68,9 +70,9 @@ usersRouter.get('/:id', async (req, res) => {
 });
 
 usersRouter.patch('/', (req, res) => {
-    if (res.locals.user.userrole === admin.id) {
+    if (res.locals.user.role === admin.id) {
         adminPatch(req, res);
-    } else if (res.locals.user.userrole === manager.id) {
+    } else if (res.locals.user.role === manager.id) {
         managerPatch(req, res);
     } else {
         res.locals(401).send({auth: false, message: 'Invalid Credentials'});

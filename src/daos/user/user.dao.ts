@@ -13,7 +13,17 @@ export default class UserDao {
 
         client.release();
 
-        return result.rows;
+        return result.rows.map(entry => {
+            return {
+                id: entry['id'],
+                role: entry['userrole'],
+                username: entry['username'],
+                password: entry['userpassword'],
+                email : entry['email'],
+                firstName: entry['firstname'],
+                lastName: entry['lastname']
+            };
+        });
     }
 
     public async getUserbyId(id: number): Promise<User> {
@@ -27,7 +37,17 @@ export default class UserDao {
 
         client.release();
 
-        return result.rows[0];
+        return result.rows.map(entry => {
+            return {
+                id: entry['id'],
+                role: entry['userrole'],
+                username: entry['username'],
+                password: entry['userpassword'],
+                email : entry['email'],
+                firstName: entry['firstname'],
+                lastName: entry['lastname']
+            };
+        })[0];
     }
 
     public async getUserbyUsername(username: string): Promise<User> {
@@ -41,11 +61,21 @@ export default class UserDao {
 
         client.release();
 
-        return result.rows[0];
+        return result.rows.map(entry => {
+            return {
+                id: entry['id'],
+                role: entry['userrole'],
+                username: entry['username'],
+                password: entry['userpassword'],
+                email : entry['email'],
+                firstName: entry['firstname'],
+                lastName: entry['lastname']
+            };
+        })[0];
     }
 
     public async insertNewUser(username: string, userpassword: string, email: string,
-        firstname: string, lastname: string): Promise<number> {
+        firstname: string, lastname: string): Promise<User> {
         const pool = SessionFactory.getConnectionPool();
 
         const client = await pool.connect()
@@ -58,7 +88,17 @@ export default class UserDao {
 
         client.release();
 
-        return result.rows[0].id;
+        return result.rows.map(entry => {
+            return {
+                id: entry['id'],
+                role: entry['userrole'],
+                username: entry['username'],
+                password: entry['userpassword'],
+                email : entry['email'],
+                firstName: entry['firstname'],
+                lastName: entry['lastname']
+            };
+        })[0];
     }
 
     public async updateUserRole(id: number, role: number) {

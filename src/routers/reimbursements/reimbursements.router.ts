@@ -25,7 +25,7 @@ reimbursementsRouter.use((req, res, next) => {
 }); // end of authenticator
 
 reimbursementsRouter.get('/', async (req, res) => {
-    if (res.locals.user.userrole === manager.id || res.locals.user.userrole === admin.id) {
+    if (res.locals.user.role === manager.id || res.locals.user.role === admin.id) {
         const dao = new ReimbursementDao();
         try {
             const reimbursements = await dao.getAllReimbursements();
@@ -40,7 +40,7 @@ reimbursementsRouter.get('/', async (req, res) => {
 }) ;
 
 reimbursementsRouter.get('/status/:statusId', async (req, res) => {
-    if (res.locals.user.userrole === manager.id || res.locals.user.userrole === admin.id) {
+    if (res.locals.user.role === manager.id || res.locals.user.role === admin.id) {
         if (!req.params.statusId) {
             res.status(400).send({message: 'No status provided'});
         } else {
@@ -59,7 +59,7 @@ reimbursementsRouter.get('/status/:statusId', async (req, res) => {
 });
 
 reimbursementsRouter.get('/author/userId/:userId', async (req, res) => {
-    if (res.locals.user.userrole === manager.id || res.locals.user.userrole === admin.id) {
+    if (res.locals.user.role === manager.id || res.locals.user.role === admin.id) {
         if (!req.params.userId) {
             res.status(400).send({message: 'No User Id provided'});
         } else {

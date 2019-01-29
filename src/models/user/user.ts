@@ -1,24 +1,23 @@
 import { UserRole, user, manager, admin } from './user.roles';
-import jwt from 'jsonwebtoken';
 
 export default class User {
   id: number;
-  userrole: number;
+  role: number;
 
   username: string;
-  userpassword: string;
+  password: string;
   email: string;
 
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
 
   constructor(id: number = 0, username: string = '', password: string = '', email: string = '', firstName: string = '', lastName: string = '', role: number = user.id) {
     this.id = id; // Need logic to generate unique key.
     this.username = username;
-    this.userpassword = password;
+    this.password = password;
     this.email = email;
-    this.firstname = firstName;
-    this.lastname = lastName;
-    this.userrole = role;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.role = role;
   }
 }

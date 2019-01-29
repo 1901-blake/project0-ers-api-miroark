@@ -1,4 +1,4 @@
-import { Reimbursement } from './reimbursement';
+import Reimbursement from './reimbursement';
 
 describe('Reimburment', () => {
     it('Can create a new object with all parameters', () => {
