@@ -1,5 +1,5 @@
-import User from '../models/user/user';
-import SessionFactory from '../util/session.factory';
+import User from '../../models/user/user';
+import SessionFactory from '../../util/session.factory';
 
 export default class UserDao {
     public async getAllUsers(): Promise<User[]> {
@@ -51,13 +51,10 @@ export default class UserDao {
         const client = await pool.connect()
         .catch(err => {throw err; });
 
-        await client.query(
-            'insert into users (userrole, username, userpassword, email, firstname, lastname) values (($1), ($2), ($3), ($4), ($5), ($6))',
+        const result = await client.query(
+            'insert into users (userrole, username, userpassword, email, firstname, lastname) values (($1), ($2), ($3), ($4), ($5), ($6)) returning *',
             [1, username, userpassword, email, firstname, lastname])
             .catch((err) => {throw err; });
-
-        const result = await client.query('select id from users where username = ($1)', [username])
-        .catch(err => {throw err; });
 
         client.release();
 
@@ -70,9 +67,7 @@ export default class UserDao {
         const client = await pool.connect()
         .catch(err => {throw err; });
 
-        await client.query(
-            'update users set userrole = ($1) where id = ($2)', [role, id]
-        )
+        await client.query('update users set userrole = ($1) where id = ($2)', [role, id])
         .catch(err => {throw err; });
 
         client.release();
@@ -84,9 +79,7 @@ export default class UserDao {
         const client = await pool.connect()
         .catch(err => {throw err; });
 
-        await client.query(
-            'update users set username = ($1) where id = ($2)', [username, id]
-        )
+        await client.query('update users set username = ($1) where id = ($2)', [username, id])
         .catch(err => {throw err; });
 
         client.release();
@@ -98,9 +91,7 @@ export default class UserDao {
         const client = await pool.connect()
         .catch(err => {throw err; });
 
-        await client.query(
-            'update users set userpassword = ($1) where id = ($2)', [password, id]
-        )
+        await client.query('update users set userpassword = ($1) where id = ($2)', [password, id])
         .catch(err => {throw err; });
 
         client.release();
@@ -112,9 +103,7 @@ export default class UserDao {
         const client = await pool.connect()
         .catch(err => {throw err; });
 
-        await client.query(
-            'update users set email = ($1) where id = ($2) ', [email, id]
-        )
+        await client.query('update users set email = ($1) where id = ($2) ', [email, id])
         .catch(err => {throw err; });
 
         client.release();
@@ -126,9 +115,7 @@ export default class UserDao {
         const client = await pool.connect()
         .catch(err => {throw err; });
 
-        await client.query(
-            'update users set firstname = ($1) where id = ($2)', [fName, id]
-        )
+        await client.query('update users set firstname = ($1) where id = ($2)', [fName, id])
         .catch(err => {throw err; });
 
         client.release();
@@ -140,9 +127,7 @@ export default class UserDao {
         const client = await pool.connect()
         .catch(err => {throw err; });
 
-        await client.query(
-            'update users set firstname = ($1) where id = ($2)', [lName, id]
-        )
+        await client.query('update users set firstname = ($1) where id = ($2)', [lName, id])
         .catch(err => {throw err; });
 
         client.release();

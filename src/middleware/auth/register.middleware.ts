@@ -1,6 +1,6 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
-import UserDao from '../../daos/user.dao';
+import UserDao from '../../daos/user/user.dao';
 import jwt from 'jsonwebtoken';
 
 export default function registerAuth (req: express.Request, res: express.Response) {

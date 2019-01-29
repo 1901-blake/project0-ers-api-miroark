@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ReimbursementType | ers-system</title>
+	<title>ReimbursementDao | ers-system</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_models_reimbursement_reimbursement_type_.html">&quot;models/reimbursement/reimbursement.type&quot;</a>
+					<a href="../modules/_daos_reimbursement_reimbirsement_dao_.html">&quot;daos/reimbursement/reimbirsement.dao&quot;</a>
 				</li>
 				<li>
-					<a href="_models_reimbursement_reimbursement_type_.reimbursementtype.html">ReimbursementType</a>
+					<a href="_daos_reimbursement_reimbirsement_dao_.reimbursementdao.html">ReimbursementDao</a>
 				</li>
 			</ul>
-			<h1>Class ReimbursementType</h1>
+			<h1>Class ReimbursementDao</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ReimbursementType</span>
+						<span class="target">ReimbursementDao</span>
 					</li>
 				</ul>
 			</section>
@@ -82,71 +82,116 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_models_reimbursement_reimbursement_type_.reimbursementtype.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_reimbursement_reimbursement_type_.reimbursementtype.html#type" class="tsd-kind-icon">type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_models_reimbursement_reimbursement_type_.reimbursementtype.html#typeid" class="tsd-kind-icon">type<wbr>Id</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_daos_reimbursement_reimbirsement_dao_.reimbursementdao.html#getallreimbursements" class="tsd-kind-icon">get<wbr>All<wbr>Reimbursements</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_daos_reimbursement_reimbirsement_dao_.reimbursementdao.html#getreimbursementsbyauthorid" class="tsd-kind-icon">get<wbr>Reimbursements<wbr>ByAuthor<wbr>Id</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_daos_reimbursement_reimbirsement_dao_.reimbursementdao.html#getreimbursementsbystatus" class="tsd-kind-icon">get<wbr>Reimbursements<wbr>ByStatus</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_daos_reimbursement_reimbirsement_dao_.reimbursementdao.html#insertnewreimbursement" class="tsd-kind-icon">insert<wbr>New<wbr>Reimbursement</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Reimbursement<wbr>Type<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_models_reimbursement_reimbursement_type_.reimbursementtype.html" class="tsd-signature-type">ReimbursementType</a></li>
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getallreimbursements" class="tsd-anchor"></a>
+					<h3>get<wbr>All<wbr>Reimbursements</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>Reimbursements<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_models_reimbursement_reimbursement_.reimbursement.html" class="tsd-signature-type">Reimbursement</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/8b95c15/src/models/reimbursement/reimbursement.type.ts#L3">models/reimbursement/reimbursement.type.ts:3</a></li>
+									<li>Defined in daos/reimbursement/reimbirsement.dao.ts:6</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_models_reimbursement_reimbursement_.reimbursement.html" class="tsd-signature-type">Reimbursement</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getreimbursementsbyauthorid" class="tsd-anchor"></a>
+					<h3>get<wbr>Reimbursements<wbr>ByAuthor<wbr>Id</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Reimbursements<wbr>ByAuthor<wbr>Id<span class="tsd-signature-symbol">(</span>author<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in daos/reimbursement/reimbirsement.dao.ts:34</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>id: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<h5>author: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_models_reimbursement_reimbursement_type_.reimbursementtype.html" class="tsd-signature-type">ReimbursementType</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/8b95c15/src/models/reimbursement/reimbursement.type.ts#L3">models/reimbursement/reimbursement.type.ts:3</a></li>
-						</ul>
-					</aside>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getreimbursementsbystatus" class="tsd-anchor"></a>
+					<h3>get<wbr>Reimbursements<wbr>ByStatus</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Reimbursements<wbr>ByStatus<span class="tsd-signature-symbol">(</span>status<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in daos/reimbursement/reimbirsement.dao.ts:20</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>status: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="typeid" class="tsd-anchor"></a>
-					<h3>type<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">type<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/1901-blake/project0-ers-api-miroark/blob/8b95c15/src/models/reimbursement/reimbursement.type.ts#L2">models/reimbursement/reimbursement.type.ts:2</a></li>
-						</ul>
-					</aside>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="insertnewreimbursement" class="tsd-anchor"></a>
+					<h3>insert<wbr>New<wbr>Reimbursement</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">insert<wbr>New<wbr>Reimbursement<span class="tsd-signature-symbol">(</span>author<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, datesubmitted<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, description<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_models_reimbursement_reimbursement_.reimbursement.html" class="tsd-signature-type">Reimbursement</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in daos/reimbursement/reimbirsement.dao.ts:48</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>author: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>amount: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>datesubmitted: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>description: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_models_reimbursement_reimbursement_.reimbursement.html" class="tsd-signature-type">Reimbursement</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -156,7 +201,7 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_daos_reimbursement_reimbirsement_dao_.html">"daos/reimbursement/reimbirsement.dao"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -180,7 +225,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_models_reimbursement_reimbursement_status_.html">"models/reimbursement/reimbursement.status"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_models_reimbursement_reimbursement_type_.html">"models/reimbursement/reimbursement.type"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -211,33 +256,24 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_models_reimbursement_reimbursement_type_.reimbursementtype.html" class="tsd-kind-icon">Reimbursement<wbr>Type</a>
+						<a href="_daos_reimbursement_reimbirsement_dao_.reimbursementdao.html" class="tsd-kind-icon">Reimbursement<wbr>Dao</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_models_reimbursement_reimbursement_type_.reimbursementtype.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_daos_reimbursement_reimbirsement_dao_.reimbursementdao.html#getallreimbursements" class="tsd-kind-icon">get<wbr>All<wbr>Reimbursements</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_models_reimbursement_reimbursement_type_.reimbursementtype.html#type" class="tsd-kind-icon">type</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_daos_reimbursement_reimbirsement_dao_.reimbursementdao.html#getreimbursementsbyauthorid" class="tsd-kind-icon">get<wbr>Reimbursements<wbr>ByAuthor<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_models_reimbursement_reimbursement_type_.reimbursementtype.html#typeid" class="tsd-kind-icon">type<wbr>Id</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_daos_reimbursement_reimbirsement_dao_.reimbursementdao.html#getreimbursementsbystatus" class="tsd-kind-icon">get<wbr>Reimbursements<wbr>ByStatus</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_daos_reimbursement_reimbirsement_dao_.reimbursementdao.html#insertnewreimbursement" class="tsd-kind-icon">insert<wbr>New<wbr>Reimbursement</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-						<a href="../modules/_models_reimbursement_reimbursement_type_.html#food" class="tsd-kind-icon">food</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-						<a href="../modules/_models_reimbursement_reimbursement_type_.html#lodging" class="tsd-kind-icon">lodging</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-						<a href="../modules/_models_reimbursement_reimbursement_type_.html#other" class="tsd-kind-icon">other</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-						<a href="../modules/_models_reimbursement_reimbursement_type_.html#travel" class="tsd-kind-icon">travel</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
