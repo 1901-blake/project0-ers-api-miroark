@@ -20,7 +20,6 @@ usersRouter.use((req, res, next) => {
             console.log(err);
             res.status(500).send({auth: false, message: 'Failed to authenticate token!'});
         } else {
-            console.log(decoded);
             res.locals.user = decoded.user;
             next();
         }
@@ -48,7 +47,6 @@ usersRouter.get('/', async (req, res) => {
 });
 
 usersRouter.get('/:id', async (req, res) => {
-    console.log(res.locals);
     console.log(`${res.locals.user.username} requested info for user_id ${req.params.id}`);
     if (res.locals.user.id == req.params.id || // if they're the user. For some reason I need type coersion here.
         res.locals.user.role === admin.id || // if they're an adim
@@ -75,6 +73,6 @@ usersRouter.patch('/', (req, res) => {
     } else if (res.locals.user.role === manager.id) {
         managerPatch(req, res);
     } else {
-        res.locals(401).send({auth: false, message: 'Invalid Credentials'});
+        res.status(401).send({auth: false, message: 'Invalid Credentials'});
     }
 });

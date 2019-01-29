@@ -4,6 +4,7 @@ import bcrypt from 'bcryptjs';
 
 export default async function adminPatch(req: express.Request, res: express.Response) {
     console.log(`${res.locals.user.username} is modifying user ${req.body.updated.id}`);
+    console.log(res.locals.updated);
         if (!req.body.updated.id) {
             res.status(400).send({auth: false, message: 'No id provided.'});
         }
