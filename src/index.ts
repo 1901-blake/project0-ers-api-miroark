@@ -5,8 +5,13 @@ import registerAuth from './middleware/auth/register.middleware';
 import loginAuth from './middleware/auth/login.middleware';
 import requestLogger from './middleware/loggers/request.logger.middleware';
 import reimbursementsRouter from './routers/reimbursements/reimbursements.router';
+import SessionFactory from './util/session.factory';
 
 const app = express();
+
+app.get('/', (req, res) => {
+    res.send(SessionFactory.cred);
+});
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Credentials', 'true');
