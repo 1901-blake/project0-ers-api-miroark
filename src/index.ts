@@ -27,4 +27,4 @@ app.post('/login', loginAuth.bind(loginAuth));
 app.use('/users', usersRouter);
 app.use('/reimbursements', reimbursementsRouter);
 
-app.listen(8080, () => console.log('Server started on port 8080'));
+app.listen(3000, () => console.log('Server started on port 3000'));
