@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec ts-node src/index.ts",
-    "test": "jest --coverage --coverageDirectory=output/coverage/jest",
+    "test": "jest --coverage",
     "deploy": "ts-node src/index.ts",
     "test:watch": "jest --watch",
     "lint": "tslint src/**/*.ts",
