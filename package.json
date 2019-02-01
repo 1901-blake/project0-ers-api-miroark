@@ -35,6 +35,10 @@
     "tslint": "^5.12.1"
   },
   "jest": {
+    "coverageReporters": [
+      "text",
+      "cobertura"
+    ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },

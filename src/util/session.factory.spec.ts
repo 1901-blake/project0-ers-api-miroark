@@ -14,6 +14,6 @@ describe('SessionFactory', () => {
         const client = await pool.connect();
         const result = await client.query('select * from users').catch(err => {throw err; });
 
-        expect(result).toBeDefined;
+        expect(result.rows[0]).toBeDefined;
     });
 });
