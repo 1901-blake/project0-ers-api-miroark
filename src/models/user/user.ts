@@ -1,4 +1,4 @@
-import { UserRole, user, manager, admin } from './user.roles';
+import { user } from './user.roles';
 
 export default class User {
   id: number;
@@ -11,8 +11,9 @@ export default class User {
   firstName: string;
   lastName: string;
 
-  constructor(id: number = 0, username: string = '', password: string = '', email: string = '', firstName: string = '', lastName: string = '', role: number = user.id) {
-    this.id = id; // Need logic to generate unique key.
+  constructor
+  (id: number = 0, username: string = '', password: string = '', email: string = '', firstName: string = '', lastName: string = '', role: number = user.id) {
+    this.id = id;
     this.username = username;
     this.password = password;
     this.email = email;

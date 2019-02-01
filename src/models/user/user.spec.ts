@@ -1,7 +1,24 @@
 import User  from './user';
-import { user, manager, admin } from './user.roles';
+import { user, manager } from './user.roles';
 
 describe ('User Class', () => {
+  it('has a working constructor', () => {
+
+    expect(new User(0, 'miroark', 'password123', 'me@email.com')).toBeDefined();
+  });
+
+  it('can create and object without being give parameters/', () => {
+    const testObj = {
+      id : 0,
+      username : '',
+      password: '',
+      email: '',
+      firstName : '',
+      lastName : '',
+      role : 1
+    };
+    expect(new User).toEqual(testObj);
+  });
 
   it('can create a user with only username, password, and email.', () => {
     const testObj = {
