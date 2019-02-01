@@ -19,5 +19,6 @@ describe('SessionFactory', () => {
 
         const entry = result.rows;
         expect(entry).toBeDefined;
-    });
+    }, 30000);
+
 });
