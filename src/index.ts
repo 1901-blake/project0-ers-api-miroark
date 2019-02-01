@@ -9,10 +9,6 @@ import SessionFactory from './util/session.factory';
 
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send(SessionFactory.cred);
-});
-
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Origin', String(req.headers.origin));
