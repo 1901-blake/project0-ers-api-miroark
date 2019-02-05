@@ -2,7 +2,6 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import { admin, manager } from '../../models/user/user.roles';
 import UserDao from '../../daos/user/user.dao';
-import managerPatch from './users.manager.patch';
 import adminPatch from './users.admin.patch';
 
 const usersRouter = express.Router();
@@ -70,8 +69,6 @@ usersRouter.get('/:id', async (req, res) => {
 usersRouter.patch('/', (req, res) => {
     if (res.locals.user.role === admin.id) {
         adminPatch(req, res);
-    } else if (res.locals.user.role === manager.id) {
-        managerPatch(req, res);
     } else {
         res.status(401).send({auth: false, message: 'Invalid Credentials'});
     }
