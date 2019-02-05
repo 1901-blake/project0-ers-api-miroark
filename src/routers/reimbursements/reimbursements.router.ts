@@ -2,6 +2,7 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import { manager, admin } from '../../models/user/user.roles';
 import ReimbursementDao from '../../daos/reimbursement/reimbirsement.dao';
+import managerPatch from './reimbursements.manager.patch';
 
 const reimbursementsRouter = express.Router();
 export default reimbursementsRouter;
@@ -111,5 +112,13 @@ reimbursementsRouter.post('/', async (req, res) => {
             res.status(500).send({message: 'Unknown error has occured'});
             throw err;
         }
+    }
+});
+
+reimbursementsRouter.patch('/', (req, res) => {
+    if (res.locals.user.role === admin.id) {
+        managerPatch(req, res);
+    } else {
+        res.status(401).send({auth: false, message: 'Invalid Credentials'});
     }
 });
