@@ -60,6 +60,8 @@ reimbursementsRouter.get('/status/:statusId', async (req, res) => {
 });
 
 reimbursementsRouter.get('/author/userId/:userId', async (req, res) => {
+    console.log(res.locals.user.id);
+    console.log(req.params.userId);
     if (res.locals.user.role === manager.id ||
         res.locals.user.role === admin.id ||
         res.locals.user.id == req.params.userId) {
