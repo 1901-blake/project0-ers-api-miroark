@@ -49,7 +49,7 @@ usersRouter.get('/:id', async (req, res) => {
     console.log(`${res.locals.user.username} requested info for user_id ${req.params.id}`);
     if (res.locals.user.id == req.params.id || // if they're the user. For some reason I need type coersion here.
         res.locals.user.role === admin.id || // if they're an adim
-        res.locals.user.roled === manager.id) {   // if they're a manager
+        res.locals.user.role === manager.id) {   // if they're a manager
 
         const dao = new UserDao();
         try {

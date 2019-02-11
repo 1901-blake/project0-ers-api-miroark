@@ -60,7 +60,9 @@ reimbursementsRouter.get('/status/:statusId', async (req, res) => {
 });
 
 reimbursementsRouter.get('/author/userId/:userId', async (req, res) => {
-    if (res.locals.user.role === manager.id || res.locals.user.role === admin.id) {
+    if (res.locals.user.role === manager.id ||
+        res.locals.user.role === admin.id ||
+        res.locals.user.id == req.params.id) {
         if (!req.params.userId) {
             res.status(400).send({message: 'No User Id provided'});
         } else {
