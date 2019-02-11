@@ -30,9 +30,9 @@ reimbursementsRouter.get('/', async (req, res) => {
         const dao = new ReimbursementDao();
         try {
             const reimbursements = await dao.getAllReimbursements();
-            res.status(200).send(reimbursements);
+            res.status(200).send({auth: true, reimbursements});
         } catch (err) {
-            res.status(500).send({message: 'Unknown error occured'});
+            res.status(500).send({auth: false, message: 'Unknown error occured'});
             throw err;
         }
     } else {
