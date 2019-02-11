@@ -43,14 +43,14 @@ reimbursementsRouter.get('/', async (req, res) => {
 reimbursementsRouter.get('/status/:statusId', async (req, res) => {
     if (res.locals.user.role === manager.id || res.locals.user.role === admin.id) {
         if (!req.params.statusId) {
-            res.status(400).send({message: 'No status provided'});
+            res.status(400).send({auth: false, message: 'No status provided'});
         } else {
             const dao = new ReimbursementDao();
             try {
                 const reimbursements = await dao.getReimbursementsByStatus(req.params.statusId);
-                res.status(200).send(reimbursements);
+                res.status(200).send({auth: true, reimbursements});
             } catch (err) {
-                res.status(500).send({message: 'Unknown Error Occured'});
+                res.status(500).send({auth: false, message: 'Unknown Error Occured'});
                 throw err;
             }
         }
@@ -64,14 +64,14 @@ reimbursementsRouter.get('/author/userId/:userId', async (req, res) => {
         res.locals.user.role === admin.id ||
         res.locals.user.id == req.params.userId) {
         if (!req.params.userId) {
-            res.status(400).send({message: 'No User Id provided'});
+            res.status(400).send({auth: false, message: 'No User Id provided'});
         } else {
             const dao = new ReimbursementDao();
             try {
                 const reimbursements = await dao.getReimbursementsByAuthorId(req.params.userId);
                 res.status(200).send({auth: true, reimbursements});
             } catch (err) {
-                res.status(500).send({message: 'Unknown Error Occured'});
+                res.status(500).send({auth: false, message: 'Unknown Error Occured'});
                 throw err;
             }
         }
@@ -83,19 +83,19 @@ reimbursementsRouter.get('/author/userId/:userId', async (req, res) => {
 reimbursementsRouter.post('/', async (req, res) => {
     console.log(`${res.locals.user.username} inserting new reimbursement...`);
     if (!req.body.reimbursement.author) {
-        res.status(400).send({message: 'No author for reimbsrsement provided'});
+        res.status(400).send({auth: false, message: 'No author for reimbsrsement provided'});
     }
     else if (!req.body.reimbursement.amount) {
-        res.status(400).send({message: 'No amount for reimbursement provided'});
+        res.status(400).send({auth: false, message: 'No amount for reimbursement provided'});
     }
     else if (!req.body.reimbursement.datesubmitted) {
-        res.status(400).send({mesage: 'No datesubmitted for reimbursement provided'});
+        res.status(400).send({auth: false, mesage: 'No datesubmitted for reimbursement provided'});
     }
     else if (!req.body.reimbursement.description) {
-        res.status(400).status(400).send({message: 'No description for reimbursement provided'});
+        res.status(400).status(400).send({auth: false, message: 'No description for reimbursement provided'});
     }
     else if (!req.body.reimbursement.type) {
-        res.status(400).send({message: 'No type for reimbursement provided'});
+        res.status(400).send({auth: false, message: 'No type for reimbursement provided'});
     }
     else {
         const dao = new ReimbursementDao();
@@ -107,11 +107,11 @@ reimbursementsRouter.post('/', async (req, res) => {
                 req.body.reimbursement.datesubmitted, req.body.reimbursement.description,
                 req.body.reimbursement.type);
 
-            res.status(201).send(reimbursement);
+            res.status(201).send({ auth: true, reimbursement });
         }
         catch (err) {
             console.log('Sending error...');
-            res.status(500).send({message: 'Unknown error has occured'});
+            res.status(500).send({auth: false, message: 'Unknown error has occured'});
             throw err;
         }
     }

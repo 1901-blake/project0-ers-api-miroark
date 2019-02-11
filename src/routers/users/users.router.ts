@@ -34,7 +34,7 @@ usersRouter.get('/', async (req, res) => {
         const dao = new UserDao();
         try {
             const users = await dao.getAllUsers();
-            res.status(200).send(users);
+            res.status(200).send({ auth: true, users });
         }
         catch (err) {
             res.status(500).send({auth: false, message: 'Unknown error has occured'});
@@ -54,7 +54,7 @@ usersRouter.get('/:id', async (req, res) => {
         const dao = new UserDao();
         try {
             const user = await dao.getUserbyId(req.params.id);
-            res.status(200).send(user);
+            res.status(200).send({ auth: true, user });
         }
         catch (err) {
             res.status(500).send({auth: false, message: 'Unknown error has occurred'});
@@ -62,7 +62,7 @@ usersRouter.get('/:id', async (req, res) => {
         }
 
     } else {
-        res.status(401).send({message: 'The incoming token has expired.'});
+        res.status(401).send({auth: false, message: 'The incoming token has expired.'});
     }
 });
 
