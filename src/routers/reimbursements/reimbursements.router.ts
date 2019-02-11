@@ -60,8 +60,6 @@ reimbursementsRouter.get('/status/:statusId', async (req, res) => {
 });
 
 reimbursementsRouter.get('/author/userId/:userId', async (req, res) => {
-    console.log(res.locals.user.id);
-    console.log(req.params.userId);
     if (res.locals.user.role === manager.id ||
         res.locals.user.role === admin.id ||
         res.locals.user.id == req.params.userId) {
@@ -71,7 +69,7 @@ reimbursementsRouter.get('/author/userId/:userId', async (req, res) => {
             const dao = new ReimbursementDao();
             try {
                 const reimbursements = await dao.getReimbursementsByAuthorId(req.params.userId);
-                res.status(200).send(reimbursements);
+                res.status(200).send({auth: true, reimbursements});
             } catch (err) {
                 res.status(500).send({message: 'Unknown Error Occured'});
                 throw err;
