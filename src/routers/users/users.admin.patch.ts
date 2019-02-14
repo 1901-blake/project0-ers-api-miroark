@@ -14,7 +14,7 @@ export default async function adminPatch(req: express.Request, res: express.Resp
             try {
                 dao.updateUserRole(req.body.updated.id, req.body.updated.userrole);
             } catch (err) {
-                res.status(500).send(err);
+                res.status(500).send({auth: false, err});
                 throw err;
             }
         }
@@ -22,7 +22,7 @@ export default async function adminPatch(req: express.Request, res: express.Resp
             try {
                 dao.updateUserUsername(req.body.updated.id, req.body.updated.username);
             } catch (err) {
-                res.status(500).send(err);
+                res.status(500).send({auth: false, err });
                 throw err;
             }
         }
@@ -31,7 +31,7 @@ export default async function adminPatch(req: express.Request, res: express.Resp
                 const hashedPass = bcrypt.hashSync(req.body.updated.userpassword, 8);
                 dao.updateUserPassword(req.body.updated.id, hashedPass);
             } catch (err) {
-                res.status(500).send(err);
+                res.status(500).send({auth: false, err});
                 throw err;
         }
         }
@@ -39,7 +39,7 @@ export default async function adminPatch(req: express.Request, res: express.Resp
             try {
                 dao.updateUserEmail(req.body.updated.id, req.body.updated.email);
             } catch (err) {
-                res.status(500).send(err);
+                res.status(500).send({auth: false, err});
                 throw err;
         }
         }
@@ -47,7 +47,7 @@ export default async function adminPatch(req: express.Request, res: express.Resp
             try {
                 dao.updateUserFName(req.body.updated.id, req.body.updated.firstname);
             } catch (err) {
-                res.status(500).send(err);
+                res.status(500).send({auth:false, err});
                 throw err;
             }
         }
@@ -55,15 +55,15 @@ export default async function adminPatch(req: express.Request, res: express.Resp
             try {
                 dao.updateUserLName(req.body.updated.id, req.body.updated.lastname);
             } catch (err) {
-                res.status(500).send(err);
+                res.status(500).send({auth: false, err});
                 throw err;
             }
         }
         try {
             const user = await dao.getUserbyId(req.body.updated.id);
-            res.status(200).send(user);
+            res.status(200).send({auth: true, user});
         } catch (err) {
-            res.status(500).send(err);
+            res.status(500).send({auth: false, err});
             throw err;
         }
 

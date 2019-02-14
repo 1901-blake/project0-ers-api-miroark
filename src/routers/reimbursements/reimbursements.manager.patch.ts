@@ -15,7 +15,7 @@ export default async function managerPatch(req: express.Request, res: express.Re
         try {
             dao.updateReimbursementAuthor(req.body.updated.id, req.body.updated.author);
         } catch (err) {
-            res.status(500).send(err);
+            res.status(500).send({auth: false, err});
             throw err;
         }
     }
@@ -23,7 +23,7 @@ export default async function managerPatch(req: express.Request, res: express.Re
         try {
             dao.updateReimbursementAmount(req.body.updated.id, req.body.updated.amount);
         } catch (err) {
-            res.status(500).send(err);
+            res.status(500).send({auth: false, err});
             throw err;
         }
     }
@@ -31,7 +31,7 @@ export default async function managerPatch(req: express.Request, res: express.Re
         try {
             dao.updateReimbursementDateSubmitted(req.body.updated.id, req.body.updated.dateSubmitted);
         } catch (err) {
-            res.status(500).send(err);
+            res.status(500).send({auth: false, err});
             throw err;
         }
     }
@@ -39,7 +39,7 @@ export default async function managerPatch(req: express.Request, res: express.Re
         try {
             dao.updateReimbursementDateResolved(req.body.updated.id, req.body.updated.dateResolved);
         } catch (err) {
-            res.status(500).send(err);
+            res.status(500).send({auth: false, err});
             throw err;
         }
     }
@@ -47,7 +47,7 @@ export default async function managerPatch(req: express.Request, res: express.Re
         try {
             dao.updateReimbursementDescription(req.body.updated.id, req.body.updated.description);
         } catch (err) {
-            res.status(500).send(err);
+            res.status(500).send({auth: false, err});
             throw err;
         }
     }
@@ -55,7 +55,7 @@ export default async function managerPatch(req: express.Request, res: express.Re
         try {
             dao.updateReimbursementResolverId(req.body.updated.id, req.body.updated.resolverId);
         } catch (err) {
-            res.status(500).send(err);
+            res.status(500).send({auth: false, err});
             throw err;
         }
     }
@@ -63,7 +63,7 @@ export default async function managerPatch(req: express.Request, res: express.Re
         try {
             dao.updateReimbursementStatus(req.body.updated.id, req.body.updated.status);
         } catch (err) {
-            res.status(500).send(err);
+            res.status(500).send({auth: false, err});
             throw err;
         }
     }
@@ -71,13 +71,13 @@ export default async function managerPatch(req: express.Request, res: express.Re
         try {
             dao.updateReimbursementType(req.body.updated.id, req.body.updated.type);
         } catch (err) {
-            res.status(500).send(err);
+            res.status(500).send({auth: false, err});
             throw err;
         }
     }
     try {
         const reimbursement = await dao.getReimbursementById(req.body.updated.id);
-        res.status(200).send(reimbursement);
+        res.status(200).send({auth: true, reimbursement});
     } catch (err) {
         res.status(500).send(err);
     }
